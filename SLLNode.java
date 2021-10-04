@@ -1,14 +1,17 @@
 /*Data Structures and Algorithm by Adam Drozdek */
 public class SLLNode { 
-  public Object info; 
+  public int info; 
   public SLLNode next; 
+
   public SLLNode() { 
     next = null; 
   } 
-  public SLLNode(Object el) { 
+
+  public SLLNode(int el) { 
     info = el; next = null; 
   } 
-  public SLLNode(Object el, SLLNode ptr) { 
+  
+  public SLLNode(int el, SLLNode ptr) { 
     info = el; next = ptr; 
   }
 }
