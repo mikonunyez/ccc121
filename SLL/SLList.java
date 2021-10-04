@@ -1,3 +1,5 @@
+package SLL;
+
 /*Data Structures and Algorithm by Adam Drozdek */
 public class SLList { 
   protected SLLNode head, tail;
