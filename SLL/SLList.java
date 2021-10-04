@@ -102,21 +102,4 @@ public class SLList {
       }
     }
   }
-
-
-  //   if (head != null)            // if nonempty list; 
-  //     if (el.equals(head.info)) // if head needs to be removed; 
-  //     head = head.next; 
-
-  //   else { 
-  //     SLLNode pred = head, tmp = head.next; 
-  //     for ( ; tmp != null && !(tmp.info.equals(el)); 
-  //          pred = pred.next, tmp = tmp.next); 
-  //     if (tmp != null)      // if found 
-  //       pred.next = tmp.next; 
-  //   } 
-  // }
 }
-
-
-  
