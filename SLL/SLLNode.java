@@ -1,8 +1,7 @@
 package SLL;
 
-/*Data Structures and Algorithm by Adam Drozdek */
 public class SLLNode { 
-  public int info; 
+  public Object info; 
   public SLLNode next; 
 
   public SLLNode() { 

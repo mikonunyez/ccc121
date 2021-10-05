@@ -1,6 +1,7 @@
 package SLL;
 
-/*Data Structures and Algorithm by Adam Drozdek */
+import java.util.NoSuchElementException;
+
 public class SLList { 
   protected SLLNode head, tail;
 
@@ -10,28 +11,10 @@ public class SLList {
 
   public boolean isEmpty() { 
     return head == null; 
-  }
+  }  
 
-  public void addToHead(int el) {
-    head = new SLLNode(el, head);
-    if (tail == null){
-      tail = head;
-    }
-  }
-
-  public void addToTail(int el){
-    if (!isEmpty()){
-      tail.next = new SLLNode(el);
-      tail = tail.next;
-    }
-
-    else {
-      head = tail = new SLLNode(el);
-    }
-  }
-
-  public int deleteFromHead(){
-    int el = head.info;
+  public Object deleteFromHead(){
+    Object el = head.info;
     if (head == tail){
       head = tail = null;
     }
@@ -42,47 +25,68 @@ public class SLList {
     return el;
   }
 
-  public int deleteFromTail(){
-    int el = tail.info;
-    if (head == tail){
-      head = tail = null;
-    }
-    else head = head.next;
-    return el;
-  }
-
-  public Object first() { 
-    return head.info; 
-  }
-
-  public void printAll() { 
+  public void printAll() { //utility function
     for (SLLNode tmp = head; tmp != null; tmp = tmp.next) 
-      // out.print(tmp.info); 
       System.out.println(tmp.info);
   }
 
-  public boolean isInList(int el){
-    SLLNode tmp;
-    for (tmp = head; tmp != null && tmp.info != el; tmp = tmp.next);
-    return tmp != null;
-  }
+  // methods required for submission start here
 
-  // public void addFirst(Object el) { 
-  //   head = new SLLNode(el,head); 
-  // }
-
-  public Object find(Object el) { 
-    SLLNode tmp = head; 
-    for ( ; tmp != null && !el.equals(tmp.info); tmp = tmp.next); 
-    if (tmp == null) return null; else return tmp.info; 
-  }
-
-  public Object deleteFirst() { // remove the head and return its info; 
-    Object el = head.info; head = head.next; return el; 
-  }
-
-  public void delete(int el) {    // find and remove el;  
+  public void addLast(int el){
     if (!isEmpty()){
+      tail.next = new SLLNode(el);
+      tail = tail.next;
+    }
+
+    else {
+      head = tail = new SLLNode(el);
+    }
+  }
+
+  public Object getFirst() { 
+    if (isEmpty()){
+      throw new NoSuchElementException("The list is empty!");
+    }
+
+    return head.info; 
+  }
+
+  public Object getLast(){
+    if (isEmpty()){
+      throw new NoSuchElementException("The list is empty!");
+    }
+
+    return tail.info;
+  }
+
+  public Object deleteLast(){
+    if (isEmpty()){
+      throw new NoSuchElementException("The list is empty!");
+    }
+
+    Object el = tail.info;
+    SLLNode foo, temp;
+    foo = head;
+    temp = head.next;
+
+    while (temp.next != null){
+      foo = foo.next;
+      temp = temp.next;
+    }
+
+    tail = foo;
+    tail.next = null;
+
+    return el;
+  }
+
+  public void deleteAll(Object el) {    // find and remove el;  
+    if (isEmpty()){
+      throw new NoSuchElementException("The list is empty!");
+    }
+
+    int size = size();
+    for (int a = 0; a != size; a++){
       if (head == tail && el == head.info){
         head = tail = null;
       }
@@ -102,4 +106,60 @@ public class SLList {
       }
     }
   }
+
+  public int size() { 
+    int size = 0;
+
+    for (SLLNode tmp = head; tmp != null; tmp = tmp.next){
+      size++;
+    } 
+
+    return size;
+  }
+
+  public int lastIndexOf(int ob){
+    int index, foo;
+    boolean obExists = false;
+    index = 0; 
+    foo = 0;
+    SLLNode tmp = head;
+
+    while (tmp != null){
+      if ((int) tmp.info == ob){
+        foo = index;
+        obExists = true;
+      }
+      tmp = tmp.next;
+      index++;
+    }
+
+    index = foo;
+
+    if (!obExists){
+      return -1;
+    }
+
+    return index;
+  }
+
+  public int firstIndexOf(int ob){
+    SLLNode tmp = head;
+    int index = 0;
+
+    // if ((int) head.info == ob){
+    //   return index;
+    // }
+
+    while (tmp != null){
+      if ((int) tmp.info == ob){
+        return index;
+      }
+      tmp = tmp.next;
+      index++;
+    }
+
+
+    return -1;
+  }
+
 }
