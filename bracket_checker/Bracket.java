@@ -29,7 +29,6 @@ class Bracket {
         BufferedReader reader = new BufferedReader(input_stream);
         String text = reader.readLine();
 
-        // Stack<Bracket> opening_brackets_stack = new Stack<Bracket>();
         Stack<Bracket> brackets_stack = new Stack<Bracket>();
 
         Bracket foo = new Bracket('c', 0);
@@ -52,7 +51,7 @@ class Bracket {
                 else {
                     foo = brackets_stack.peek();
                     if (foo.match(next)) brackets_stack.pop();
-                    else brackets_stack.push(br); // doesn't pop if not directly beside the thing
+                    else brackets_stack.push(br); 
                 } 
                 foo.type = next;
                 foo.position = position+1;
