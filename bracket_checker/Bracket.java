@@ -61,8 +61,10 @@ class Bracket {
 
         if (brackets_stack.isEmpty()) System.out.println("Success");
         else {
-            foo = brackets_stack.pop();
-            System.out.println(foo.position + " " + foo.type);
+            while (!brackets_stack.isEmpty() && (brackets_stack.peek().type == ')' || brackets_stack.peek().type == ']' || brackets_stack.peek().type == '}')){
+                foo = brackets_stack.pop();
+            }
+            System.out.println(foo.position);
         }
         
     }
