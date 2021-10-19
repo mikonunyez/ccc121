@@ -31,12 +31,20 @@ class Bracket {
 
         Stack<Bracket> brackets_stack = new Stack<Bracket>(); //Creates a new Stack that stores Bracket objects
 
+        /*
+        foo bracket object stores the current character and its position in the string 
+        in the same memory address
+        */
         Bracket foo = new Bracket('c', 0); // Bracket object. Temporary data for initialization, will get overridden at a later point in runtime
         
         for (int position = 0; position < text.length(); ++position) { // parses through the input string character by character
             char next = text.charAt(position); // gets the character at the current index 
             
-            Bracket br = new Bracket(next, position+1); // Bracket object that stores the current character and its position in input string
+            /*
+            br bracket object stores the current character and its position in its string.
+            difference with foo is a new object is created at every iteration of the for loop, in new memory addresses
+            */
+            Bracket br = new Bracket(next, position+1);
             
             if (next == '(' || next == '[' || next == '{') { // Checks if the character is an opening bracket
                 /*
