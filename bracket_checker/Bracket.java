@@ -41,8 +41,8 @@ class Bracket {
             if (next == '(' || next == '[' || next == '{') { // Checks if the character is an opening bracket
                 /*
                 If the character is an opening bracket,
-                Push save its current character and position in the string as a Bracket object type
-                And push it to the brackets_stack stack
+                Save its current character and position in the string as a Bracket object type
+                And push them to the brackets_stack stack
                 */
                 brackets_stack.push(br);
                 foo.type = next;
