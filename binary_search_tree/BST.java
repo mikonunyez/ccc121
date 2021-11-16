@@ -56,7 +56,7 @@ public class BST {
         return countLeaves(root);
     }
 
-    public int countLeaves(BSTNode p){
+    protected int countLeaves(BSTNode p){
         if (p != null){
             if (p.left == null && p.right == null) return 1;
             else return countLeaves(p.left) + countLeaves(p.right);
@@ -68,7 +68,7 @@ public class BST {
         return countRight(root);
     }
     
-    public int countRight(BSTNode p){
+    protected int countRight(BSTNode p){
         if (p != null){
             if (p.right != null){
                 return 1 + countRight(p.right) + countRight(p.left);
@@ -82,7 +82,7 @@ public class BST {
         return countLeft(root);
     }
     
-    public int countLeft(BSTNode p){
+    protected int countLeft(BSTNode p){
         if (p != null){
             if (p.left != null){
                 return 1 + countLeft(p.right) + countLeft(p.left);
@@ -96,7 +96,7 @@ public class BST {
         return height(root);
     }
 
-    public int height(BSTNode p){
+    protected int height(BSTNode p){
         if (p != null) {
             int leftHeight = height(p.left);
             int rightHeight = height(p.right);
@@ -105,5 +105,10 @@ public class BST {
             else return rightHeight + 1;
         }
         else return -1;
+    }
+
+    protected void deleteTree(){
+        System.out.println("Deleting tree...");
+        root = null;
     }
 }

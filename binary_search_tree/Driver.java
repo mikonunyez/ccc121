@@ -28,5 +28,8 @@ public class Driver {
 
         int height = tree.height(); // returns the height of the tree
         System.out.println("The tree's height is: " + height);
+
+        tree.deleteTree(); //deletes tree
+        tree.inorder(); // attempts to display nodes, should display nothing if tree delete is successful
     }
 }
