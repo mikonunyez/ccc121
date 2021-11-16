@@ -91,5 +91,5 @@ class WordSplaying {
         } catch(IOException io) {
             System.err.println("Cannot open " + fileName);
         }
-    }
+    }  
 }
