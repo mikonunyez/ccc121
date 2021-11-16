@@ -3,20 +3,27 @@ public class Driver {
         BST tree = new BST(); //constructor
         
         // insert nodes
-        tree.insert(10);
-        tree.insert(20);
-        tree.insert(30);
-        tree.insert(40);
-        tree.insert(50);
-        tree.insert(60);
+        tree.insert(5);
+        tree.insert(3);
+        tree.insert(8);
+        tree.insert(1);
+        tree.insert(4);
+        tree.insert(6);
+        tree.insert(9);
 
         
-        // tree.inorder(); //returns the nodes in order
+        tree.inorder(); //returns the nodes in order
 
         int nodeCount = tree.countAll(); // returns the number of nodes
         System.out.println("There are " + nodeCount + " nodes");
 
         int leafCount = tree.countLeaves(); // returns the number of leaves
         System.out.println("There are " + leafCount + " leaves");
+
+        int righthCount = tree.countRight(); // returns the number of right children
+        System.out.println("There are " + righthCount + " right children");
+
+        int leftCount = tree.countLeft(); // returns the number of left children
+        System.out.println("There are " + leftCount + " left children");
     }
 }

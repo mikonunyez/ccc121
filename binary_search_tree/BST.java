@@ -63,4 +63,32 @@ public class BST {
         }
         else return 0;
     }
+
+    public int countRight(){
+        return countRight(root);
+    }
+    
+    public int countRight(BSTNode p){
+        if (p != null){
+            if (p.right != null){
+                return 1 + countRight(p.right) + countRight(p.left);
+            }
+            else return countRight(p.left);
+        }
+        else return 0;
+    }
+
+    public int countLeft(){
+        return countLeft(root);
+    }
+    
+    public int countLeft(BSTNode p){
+        if (p != null){
+            if (p.left != null){
+                return 1 + countLeft(p.right) + countLeft(p.left);
+            }
+            else return countLeft(p.right);
+        }
+        else return 0;
+    }
 }
