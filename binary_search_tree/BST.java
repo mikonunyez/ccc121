@@ -91,4 +91,19 @@ public class BST {
         }
         else return 0;
     }
+
+    public int height(){
+        return height(root);
+    }
+
+    public int height(BSTNode p){
+        if (p != null) {
+            int leftHeight = height(p.left);
+            int rightHeight = height(p.right);
+
+            if (leftHeight > rightHeight) return leftHeight + 1;
+            else return rightHeight + 1;
+        }
+        else return -1;
+    }
 }

@@ -25,5 +25,8 @@ public class Driver {
 
         int leftCount = tree.countLeft(); // returns the number of left children
         System.out.println("There are " + leftCount + " left children");
+
+        int height = tree.height(); // returns the height of the tree
+        System.out.println("The tree's height is: " + height);
     }
 }
