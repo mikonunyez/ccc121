@@ -42,4 +42,13 @@ public class BST {
             inorder(p.right);
         }
     }
+
+    public int countAll(){
+        return countAll(root);
+    }
+
+    protected int countAll(BSTNode p){
+        if (p != null) return 1 + countAll(p.left) + countAll(p.right);
+        else return 0;
+    }
 }
