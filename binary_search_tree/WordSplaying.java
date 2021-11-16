@@ -56,7 +56,7 @@ class WordSplay extends SplayTree {
                     ch = fIn.read();
                 }
 
-                if ((p = (Word)search(new Word(s))) == null) insert(new Word(s));
+                if ((p = (Word)search(root, new Word(s))) == null) insert(new Word(s));
                 else ((Word)p).freq++;
             }
         } catch (IOException io) {
