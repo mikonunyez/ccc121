@@ -15,5 +15,8 @@ public class Driver {
 
         int nodeCount = tree.countAll(); // returns the number of nodes
         System.out.println("There are " + nodeCount + " nodes");
+
+        int leafCount = tree.countLeaves(); // returns the number of leaves
+        System.out.println("There are " + leafCount + " leaves");
     }
 }

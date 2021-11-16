@@ -51,4 +51,16 @@ public class BST {
         if (p != null) return 1 + countAll(p.left) + countAll(p.right);
         else return 0;
     }
+
+    public int countLeaves(){
+        return countLeaves(root);
+    }
+
+    public int countLeaves(BSTNode p){
+        if (p != null){
+            if (p.left == null && p.right == null) return 1;
+            else return countLeaves(p.left) + countLeaves(p.right);
+        }
+        else return 0;
+    }
 }
